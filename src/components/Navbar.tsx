@@ -5,6 +5,9 @@ import { Menu, X, Phone, Instagram, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
+/* =======================
+   NAV LINKS
+======================= */
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/dashboard", label: "About" },
@@ -20,7 +23,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <nav className="container mx-auto px-4 h-20 flex items-center justify-between relative">
+      <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3">
           <div className="w-16 h-16 rounded-lg overflow-hidden">
@@ -54,7 +57,7 @@ export function Navbar() {
 
         {/* DESKTOP CTA */}
         <div className="hidden md:flex items-center gap-5">
-          {/* GOOGLE REVIEWS ONLY ON DESKTOP */}
+          {/* GOOGLE REVIEWS */}
           <a
             href="https://share.google/PfnRYKg7cZGw1Ozcq"
             target="_blank"
@@ -102,13 +105,14 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* MOBILE GOOGLE REVIEWS OUTSIDE HAMBURGER */}
-        <div className="md:hidden absolute top-20 left-4 flex items-center gap-2 text-sm text-muted-foreground">
+        {/* MOBILE GOOGLE REVIEWS + HAMBURGER */}
+        <div className="md:hidden flex items-center gap-3">
+          {/* GOOGLE REVIEWS */}
           <a
             href="https://share.google/PfnRYKg7cZGw1Ozcq"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 hover:text-primary transition"
+            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition"
           >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
@@ -117,24 +121,20 @@ export function Navbar() {
             />
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-3 h-3 fill-yellow-400 text-yellow-400"
-                />
+                <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span>5.0 Reviews</span>
           </a>
-        </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          {/* HAMBURGER BUTTON */}
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* MOBILE MENU */}
@@ -144,7 +144,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border mt-4"
+            className="md:hidden bg-background border-b border-border mt-2"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
