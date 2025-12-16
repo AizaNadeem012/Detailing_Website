@@ -5,9 +5,6 @@ import { Menu, X, Phone, Instagram, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
-/* =======================
-   NAV LINKS
-======================= */
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/dashboard", label: "About" },
@@ -23,7 +20,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <nav className="container mx-auto px-4 h-20 flex items-center justify-between relative">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3">
           <div className="w-16 h-16 rounded-lg overflow-hidden">
@@ -57,21 +54,18 @@ export function Navbar() {
 
         {/* DESKTOP CTA */}
         <div className="hidden md:flex items-center gap-5">
-          {/* GOOGLE REVIEWS */}
+          {/* GOOGLE REVIEWS ONLY ON DESKTOP */}
           <a
             href="https://share.google/PfnRYKg7cZGw1Ozcq"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition"
           >
-            {/* Google Logo */}
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
               alt="Google Reviews"
               className="w-4 h-4"
             />
-
-            {/* 5 Stars */}
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -80,7 +74,6 @@ export function Navbar() {
                 />
               ))}
             </div>
-
             <span className="hidden lg:block">5.0 Reviews</span>
           </a>
 
@@ -109,6 +102,31 @@ export function Navbar() {
           </Button>
         </div>
 
+        {/* MOBILE GOOGLE REVIEWS OUTSIDE HAMBURGER */}
+        <div className="md:hidden absolute top-20 left-4 flex items-center gap-2 text-sm text-muted-foreground">
+          <a
+            href="https://share.google/PfnRYKg7cZGw1Ozcq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-primary transition"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+              alt="Google Reviews"
+              className="w-4 h-4"
+            />
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-3 h-3 fill-yellow-400 text-yellow-400"
+                />
+              ))}
+            </div>
+            <span>5.0 Reviews</span>
+          </a>
+        </div>
+
         {/* MOBILE MENU BUTTON */}
         <button
           className="md:hidden p-2 text-foreground"
@@ -126,7 +144,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-background border-b border-border mt-4"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -144,30 +162,7 @@ export function Navbar() {
                 </Link>
               ))}
 
-              {/* MOBILE GOOGLE REVIEWS */}
-              <a
-                href="https://share.google/PfnRYKg7cZGw1Ozcq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 pt-4 border-t border-border text-sm text-muted-foreground"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-                  alt="Google Reviews"
-                  className="w-4 h-4"
-                />
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <span>5.0 Reviews</span>
-              </a>
-
-              {/* MOBILE SOCIAL */}
+              {/* MOBILE SOCIAL & PHONE */}
               <div className="flex items-center gap-4 pt-2">
                 <a
                   href="https://instagram.com/srv.detailing"
