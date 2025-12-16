@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import type { Listing } from "./ListingsTable";
+import type { Listing } from "./Listings";
 
 interface ListingFormProps {
   listings: Listing[];

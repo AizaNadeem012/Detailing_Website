@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Instagram } from "lucide-react";
+import { Menu, X, Phone, Instagram, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
 /* =======================
-   NAV LINKS (UPDATED)
+   NAV LINKS
 ======================= */
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/dashboard", label: "About" },
-  { href: "/blog", label: "Blog" },      // ✅ BLOG ADDED
-  { href: "/listings", label: "Listings" },
+  { href: "/blog", label: "Blog" },
+  { href: "/location", label: "Locations" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -55,7 +56,35 @@ export function Navbar() {
         </div>
 
         {/* DESKTOP CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-5">
+          {/* GOOGLE REVIEWS */}
+          <a
+            href="https://share.google/PfnRYKg7cZGw1Ozcq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition"
+          >
+            {/* Google Logo */}
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+              alt="Google Reviews"
+              className="w-4 h-4"
+            />
+
+            {/* 5 Stars */}
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"
+                />
+              ))}
+            </div>
+
+            <span className="hidden lg:block">5.0 Reviews</span>
+          </a>
+
+          {/* INSTAGRAM */}
           <a
             href="https://instagram.com/srv.detailing"
             target="_blank"
@@ -65,6 +94,7 @@ export function Navbar() {
             <Instagram className="w-5 h-5" />
           </a>
 
+          {/* PHONE */}
           <a
             href="tel:+447375759686"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
@@ -73,6 +103,7 @@ export function Navbar() {
             <span>+44 7375 759686</span>
           </a>
 
+          {/* CTA BUTTON */}
           <Button variant="hero" size="sm" asChild>
             <Link to="/contact">Book Now</Link>
           </Button>
@@ -113,7 +144,31 @@ export function Navbar() {
                 </Link>
               ))}
 
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
+              {/* MOBILE GOOGLE REVIEWS */}
+              <a
+                href="https://share.google/PfnRYKg7cZGw1Ozcq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 pt-4 border-t border-border text-sm text-muted-foreground"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                  alt="Google Reviews"
+                  className="w-4 h-4"
+                />
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <span>5.0 Reviews</span>
+              </a>
+
+              {/* MOBILE SOCIAL */}
+              <div className="flex items-center gap-4 pt-2">
                 <a
                   href="https://instagram.com/srv.detailing"
                   target="_blank"

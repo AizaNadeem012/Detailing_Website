@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ListingForm } from "@/components/ListingForm";
-import type { Listing } from "@/components/ListingsTable";
+import type { Listing } from "@/components/Listings";
 
 const initialListings: Listing[] = [
   {
