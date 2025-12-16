@@ -37,11 +37,11 @@ const services = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 lg:pt-32 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={heroImage} // ✅ Use imported image
+          src={heroImage}
           alt="Professional car detailing with ceramic coating"
           className="w-full h-full object-cover"
         />
@@ -83,7 +83,7 @@ export function Hero() {
                 <Link to="/contact">Book a Service</Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link to="/listings">View Listings</Link>
+                <Link to="/contact">Call Now</Link>
               </Button>
             </div>
 
