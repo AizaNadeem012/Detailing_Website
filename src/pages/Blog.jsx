@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import blog1 from "@/assets/blog1.png"
+import blog2 from "@/assets/blog2.png"
+import blog3 from "@/assets/blog3.png"
+import blog4 from "@/assets/blog4.png"
+import blog5 from "@/assets/blog5.png"
+import blog6 from "@/assets/blog6.png"
 import { Navbar } from "@/components/Navbar"
 
 // --- CSS STYLES (UPDATED FOR NAVBAR & IN-PAGE VIEW) ---
@@ -378,7 +383,7 @@ const dummyBlogPosts = [
         title: 'The Ultimate Guide to Paint Protection Film (PPF)',
         excerpt: 'Protecting your vehicle\'s paint is crucial for maintaining both aesthetics and resale value. Learn why PPF is the best investment.',
         date: 'December 10, 2025',
-        imageUrl: '/blog1.png',
+        imageUrl: blog1,
         category: 'Paint Protection',
         content: `Paint Protection Film, often referred to as PPF or clear bra, is a thermoplastic urethane film applied to painted surfaces of a new or used car to protect the paint from stone chips, bug splatters, and minor abrasions. It is a highly resilient, clear film that offers invisible protection.
         
@@ -393,7 +398,7 @@ const dummyBlogPosts = [
         title: 'Ceramic Coating vs. Wax: Which Should You Choose?',
         excerpt: 'A deep dive into the properties of ceramic coatings and traditional waxes. Understand the long-term benefits and differences.',
         date: 'November 25, 2025',
-        imageUrl: 'https://via.placeholder.com/900x450?text=Ceramic+Coating+Application+Effect',
+        imageUrl: blog2,
         category: 'Ceramic Coating',
         content: `The debate between ceramic coating and traditional car wax often comes down to longevity, protection level, and cost. Ceramic coatings are a semi-permanent solution based on SiO2 (Silicon Dioxide) technology.
         
@@ -408,7 +413,7 @@ const dummyBlogPosts = [
         title: '5 Expert Tips for Mobile Valeting at Home',
         excerpt: 'Want a professional look without leaving your driveway? Follow these simple steps for effective mobile valeting results.',
         date: 'November 15, 2025',
-        imageUrl: 'https://via.placeholder.com/900x450?text=Mobile+Valeting+Gear',
+        imageUrl: blog3,
         category: 'Mobile Services',
         content: `Mobile valeting brings the professional detail shop experience right to your home or office. While a full professional detail is recommended periodically, you can maintain that fresh look with these tips:
         
@@ -425,7 +430,7 @@ const dummyBlogPosts = [
         title: 'Understanding the Process of Paint Correction',
         excerpt: 'How do professionals remove swirl marks and minor scratches? We break down the stages of a professional paint correction service.',
         date: 'October 30, 2025',
-        imageUrl: 'https://via.placeholder.com/900x450?text=Machine+Polishing+Paint+Correction',
+        imageUrl: blog4,
         category: 'Paint Correction',
         content: `Paint correction is the process of leveling the top layer of clear coat to remove surface imperfections. This is achieved through machine polishing, using various grades of abrasive compounds and pads.
         
@@ -440,7 +445,7 @@ const dummyBlogPosts = [
         title: 'Deep Clean: Essential Steps for Interior Detailing',
         excerpt: 'The inside of your car deserves just as much attention as the outside. Learn the professional techniques for a spotless interior.',
         date: 'October 15, 2025',
-        imageUrl: 'https://via.placeholder.com/900x450?text=Car+Interior+Vacuum+and+Cleaning',
+        imageUrl: blog5,
         category: 'Interior Care',
         content: `Interior detailing goes beyond a quick vacuum. It involves deep cleaning all surfaces, including carpets, upholstery, vinyl, plastic, and leather, to restore the cabin to a like-new condition.
         
@@ -455,7 +460,7 @@ const dummyBlogPosts = [
         title: 'Restoring Cloudy Headlights: A Step-by-Step Guide',
         excerpt: 'Cloudy, yellowed headlights severely impact visibility and your car\'s appearance. Follow this guide to restore them safely.',
         date: 'October 01, 2025',
-        imageUrl: 'https://via.placeholder.com/900x450?text=Headlight+Restoration+Process',
+        imageUrl: blog6,
         category: 'Maintenance',
         content: `Headlight clarity is crucial for safety, as oxidized lenses reduce light output significantly. Restoration involves removing the damaged layer of plastic and then protecting the fresh surface.
         

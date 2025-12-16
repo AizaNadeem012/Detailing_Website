@@ -87,13 +87,13 @@ export function ContactSection() {
                 </div>
               </a>
 
-              <a href="mailto:info@demo.com" className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group">
+              <a href="mailto:srvcarandautodetailing@gmail.com" className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">info@demo.com</p>
+                  <p className="font-medium">srvcarandautodetailing@gmail.com</p>
                 </div>
               </a>
 

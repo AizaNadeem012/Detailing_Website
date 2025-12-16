@@ -300,11 +300,9 @@ export default function About() {
               <Phone className="w-6 h-6 text-primary" /> <strong>Phone:</strong> <a href="tel:+447375759686" className="hover:underline">+44 7375 759686</a>
             </p>
             <p className="flex items-center gap-3 text-gray-700 hover:text-primary transition duration-300">
-              <Mail className="w-6 h-6 text-primary" /> <strong>Email:</strong> <a href="mailto:info@demo.com" className="hover:underline">info@demo.com</a>
+              <Mail className="w-6 h-6 text-primary" /> <strong>Email:</strong> <a href="mailto:srvcarandautodetailing@gmail.com" className="hover:underline">srvcarandautodetailing@gmail.com</a>
             </p>
-            <p className="flex items-center gap-3 text-gray-700">
-              <Compass className="w-6 h-6 text-primary" /> <strong>Unit:</strong> 123 Demo Street, London, UK
-            </p>
+            
           </div>
         </div>
       </section>

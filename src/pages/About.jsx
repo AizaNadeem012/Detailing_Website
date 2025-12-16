@@ -174,7 +174,7 @@ export default function About() {
           </form>
           <div className="mt-12 space-y-4 text-left max-w-2xl mx-auto">
             <p><strong>Phone:</strong> +44 7375 759686</p>
-            <p><strong>Email:</strong> info@demo.com</p>
+            <p><strong>Email:</strong> srvcarandautodetailing@gmail.com</p>
             <p><strong>Address:</strong> 123 Demo Street, London, UK</p>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function About() {
           <h3 className="text-xl font-semibold mb-4">SRV Detailing</h3>
           <p className="mb-4">Professional valeting & detailing specialist with 22 years of experience. Accredited in ceramic coating with fully equipped mobile and unit-based services.</p>
           <p className="mb-2">Quick Links: Home | Dashboard | Listings | Contact</p>
-          <p className="mb-2">Contact: +44 7375 759686 | info@demo.com | 123 Demo Street, London, UK</p>
+          <p className="mb-2">Contact: +44 7375 759686 | srvcarandautodetailing@gmail.com | 123 Demo Street, London, UK</p>
           <p className="text-sm mt-6">&copy; 2025 SRV Detailing. All rights reserved. <br/> Privacy Policy | Terms of Service</p>
         </div>
       </footer>
