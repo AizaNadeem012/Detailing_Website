@@ -18,8 +18,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* Toasters inside BrowserRouter if they use Router hooks */}
       <BrowserRouter>
-        {/* Toasters now inside BrowserRouter to fix context errors */}
         <Toaster />
         <Sonner />
 
