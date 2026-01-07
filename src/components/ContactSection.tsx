@@ -87,13 +87,13 @@ export function ContactSection() {
                 </div>
               </a>
 
-              <a href="mailto:srvcarandautodetailing@gmail.com" className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group">
+              <a href="mailto:srv_detailing@icloud.com" className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">srvcarandautodetailing@gmail.com</p>
+                  <p className="font-medium">srv_detailing@icloud.com</p>
                 </div>
               </a>
 
@@ -103,7 +103,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Address</p>
-                  <p className="font-medium">123 Demo Street, London, UK</p>
+                  <p className="font-medium">office tech solutions Dukinfield</p>
                 </div>
               </div>
             </div>
