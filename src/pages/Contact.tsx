@@ -51,7 +51,7 @@ const ContactInfoCards = () => (
       <p className="text-muted-foreground mb-4">
         Send us specifications or detailed requests for business listings and complex services.
       </p>
-      <a href="mailto:info@srvdetailing.com" className="text-primary font-bold transition-colors hover:text-primary/80 flex items-center group">
+      <a href="mailto:srv_detailing@icloud.com" className="text-primary font-bold transition-colors hover:text-primary/80 flex items-center group">
         Email Our Team
         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
       </a>
