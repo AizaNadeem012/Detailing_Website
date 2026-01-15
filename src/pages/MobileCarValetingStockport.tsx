@@ -14,47 +14,53 @@ const MobileCarValetingStockport = () => {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Hero Section - Matching the image design */}
+      {/* Hero Section - Improved and more elegant */}
       <section style={styles.hero}>
+        <div style={styles.heroBackground}></div>
         <div style={styles.container}>
           <div style={styles.heroContent}>
             <div style={styles.heroLeft}>
-              <h1 style={styles.h1}>Professional Mobile Car Detailing & Valeting</h1>
-              
-              {/* Years of Excellence Badge */}
-              <div style={styles.excellenceBadge}>
-                <span style={styles.excellenceText}>22 Years of Excellence</span>
-              </div>
+              <div style={styles.heroTextContainer}>
+                <h1 style={styles.h1}>Professional Mobile Car Detailing & Valeting</h1>
+                
+                {/* Years of Excellence Badge */}
+                <div style={styles.excellenceBadge}>
+                  <span style={styles.excellenceText}>22 Years of Excellence</span>
+                </div>
 
-              <p style={styles.heroDescription}>
-                Expert Interior & Exterior Valeting Services Across Stockport and Greater Manchester. 
-                Save time with our fully-equipped mobile car valeting service. We bring professional 
-                car detailing, eco-friendly cleaning products, and expert care directly to your home, 
-                workplace, or preferred location throughout Stockport.
-              </p>
+                <p style={styles.heroDescription}>
+                  Expert Interior & Exterior Valeting Services Across Stockport and Greater Manchester. 
+                  Save time with our fully-equipped mobile car valeting service. We bring professional 
+                  car detailing, eco-friendly cleaning products, and expert care directly to your home, 
+                  workplace, or preferred location throughout Stockport.
+                </p>
 
-              <div style={styles.heroButtons}>
-                <a href="tel:+447375759686" style={styles.callNowBtn}>
-                  Call Now: 07375 759686
-                </a>
-                <a 
-                  href="https://share.google/C5GE3wzMfDb2Ninmj" 
-                  style={styles.bookOnlineBtn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Our Reviews
-                </a>
+                <div style={styles.heroButtons}>
+                  <a href="tel:+447375759686" style={styles.callNowBtn}>
+                    Call Now: 07375 759686
+                  </a>
+                  <a 
+                    href="https://share.google/C5GE3wzMfDb2Ninmj" 
+                    style={styles.bookOnlineBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Our Reviews
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Right Content - Car Image */}
             <div style={styles.heroRight}>
-              <img 
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="White Mercedes Car Detailing" 
-                style={styles.carImage}
-              />
+              <div style={styles.imageContainer}>
+                <img 
+                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="White Mercedes Car Detailing" 
+                  style={styles.carImage}
+                />
+                <div style={styles.imageOverlay}></div>
+              </div>
             </div>
           </div>
         </div>
@@ -867,7 +873,7 @@ const MobileCarValetingStockport = () => {
   );
 };
 
-// Updated styles to use #10714C and white color scheme
+// Updated styles with improved hero section
 const styles = {
   // Base styles
   body: {
@@ -885,18 +891,42 @@ const styles = {
     padding: '0 20px',
   },
   
-  // Hero section - matching the image
+  // Improved Hero section
   hero: {
-    background: '#f5f5f5',
-    padding: '60px 0',
+    position: 'relative',
+    padding: '100px 0 80px',
+    minHeight: '600px',
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  heroBackground: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'linear-gradient(135deg, rgba(16, 113, 76, 0.9), rgba(16, 113, 76, 0.7)), url("https://images.unsplash.com/photo-1600857358116-2a0185dd5e52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    zIndex: 0,
   },
   heroContent: {
+    position: 'relative',
     display: 'flex',
-    gap: '50px',
+    gap: '60px',
     alignItems: 'center',
+    zIndex: 1,
   },
   heroLeft: {
     flex: 1,
+    maxWidth: '550px',
+  },
+  heroTextContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    padding: '40px',
+    borderRadius: '12px',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
   },
   h1: {
     fontSize: '48px',
@@ -939,6 +969,7 @@ const styles = {
     alignItems: 'center',
     gap: '8px',
     textDecoration: 'none',
+    transition: 'all 0.3s ease',
   },
   bookOnlineBtn: {
     background: 'transparent',
@@ -950,16 +981,31 @@ const styles = {
     cursor: 'pointer',
     fontSize: '16px',
     textDecoration: 'none',
+    transition: 'all 0.3s ease',
   },
   heroRight: {
     flex: 1,
+    maxWidth: '600px',
+  },
+  imageContainer: {
     position: 'relative',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
   },
   carImage: {
     width: '100%',
     height: 'auto',
-    borderRadius: '8px',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+    display: 'block',
+    borderRadius: '12px',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'linear-gradient(to right, rgba(16, 113, 76, 0.1), rgba(16, 113, 76, 0.3))',
   },
   
   // Trust bar
@@ -1379,10 +1425,20 @@ const styles = {
     heroContent: {
       flexDirection: 'column',
       gap: '30px',
+      textAlign: 'center',
+    },
+    heroLeft: {
+      maxWidth: '100%',
+    },
+    heroRight: {
+      maxWidth: '100%',
     },
   },
   
   '@media (max-width: 768px)': {
+    hero: {
+      padding: '80px 0 60px',
+    },
     heroContent: {
       flexDirection: 'column',
       gap: '30px',
@@ -1395,6 +1451,7 @@ const styles = {
     },
     heroButtons: {
       flexDirection: 'column',
+      alignItems: 'center',
     },
     h2: {
       fontSize: '30px',
