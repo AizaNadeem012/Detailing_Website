@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from "@/components/Navbar";
 
 const MobileCarValetingStockport = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,65 +11,8 @@ const MobileCarValetingStockport = () => {
 
   return (
     <div style={styles.body}>
-      {/* Header - Matching the image design */}
-      <header style={styles.siteHeader}>
-        <div style={styles.container}>
-          <div style={styles.headerContent}>
-            <div style={styles.logo}>Detailing</div>
-            
-            {/* Desktop Navigation */}
-            <nav style={styles.navMenu}>
-              <Link to="/" style={styles.navLink}>HOME</Link>
-              <Link to="/about" style={styles.navLink}>ABOUT</Link>
-              <Link to="/services" style={styles.navLink}>SERVICES</Link>
-              <Link to="/gallery" style={styles.navLink}>GALLERY</Link>
-              <Link to="/contact" style={styles.navLink}>CONTACT</Link>
-            </nav>
-
-            {/* Right side items */}
-            <div style={styles.headerRight}>
-              {/* Rating */}
-              <div style={styles.rating}>
-                <span style={styles.stars}>★★★★★</span>
-                <span style={styles.ratingText}>5.0</span>
-              </div>
-
-              {/* Contact Info */}
-              <div style={styles.contactInfo}>
-                <span style={styles.contactNumber}>07375 759686</span>
-              </div>
-
-              {/* Book Now Button */}
-              <button style={styles.bookNowBtn}>BOOK NOW</button>
-            </div>
-
-            {/* Mobile menu button */}
-            <button style={styles.mobileMenuBtn} onClick={toggleMenu}>
-              {isMenuOpen ? '✕' : '☰'}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div style={styles.mobileNav}>
-              <Link to="/" style={styles.mobileNavLink}>HOME</Link>
-              <Link to="/about" style={styles.mobileNavLink}>ABOUT</Link>
-              <Link to="/services" style={styles.mobileNavLink}>SERVICES</Link>
-              <Link to="/gallery" style={styles.mobileNavLink}>GALLERY</Link>
-              <Link to="/contact" style={styles.mobileNavLink}>CONTACT</Link>
-              
-              <div style={styles.mobileContact}>
-                <div style={styles.mobileRating}>
-                  <span style={styles.stars}>★★★★★</span>
-                  <span style={styles.ratingText}>5.0</span>
-                </div>
-                <span style={styles.contactNumber}>07375 759686</span>
-                <button style={styles.mobileBookBtn}>BOOK NOW</button>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
+      {/* Navbar Component */}
+      <Navbar />
 
       {/* Hero Section - Matching the image design */}
       <section style={styles.hero}>
@@ -923,7 +867,7 @@ const MobileCarValetingStockport = () => {
   );
 };
 
-// Updated styles to match the image
+// Updated styles to use #10714C and white color scheme
 const styles = {
   // Base styles
   body: {
@@ -933,118 +877,12 @@ const styles = {
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+    backgroundColor: '#ffffff',
   },
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '0 20px',
-  },
-  
-  // Header styles - matching the image
-  siteHeader: {
-    background: '#fff',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-    position: 'sticky',
-    top: 0,
-    zIndex: 100,
-  },
-  headerContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '15px 0',
-  },
-  logo: {
-    fontSize: '28px',
-    fontWeight: 700,
-    color: '#1e3c72',
-    textDecoration: 'none',
-  },
-  navMenu: {
-    display: 'flex',
-    gap: '30px',
-  },
-  navLink: {
-    color: '#333',
-    textDecoration: 'none',
-    fontWeight: 500,
-    transition: 'color 0.3s',
-  },
-  headerRight: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '20px',
-  },
-  rating: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-  },
-  stars: {
-    color: '#f8ce0b',
-    fontSize: '16px',
-  },
-  ratingText: {
-    fontWeight: 600,
-  },
-  contactInfo: {
-    fontWeight: 500,
-  },
-  contactNumber: {
-    color: '#1e3c72',
-    fontWeight: 600,
-  },
-  bookNowBtn: {
-    background: '#1e3c72',
-    color: 'white',
-    border: 'none',
-    padding: '10px 20px',
-    borderRadius: '4px',
-    fontWeight: 600,
-    cursor: 'pointer',
-    transition: 'background 0.3s',
-  },
-  mobileMenuBtn: {
-    display: 'none',
-    background: 'none',
-    border: 'none',
-    fontSize: '24px',
-    cursor: 'pointer',
-  },
-  mobileNav: {
-    display: 'none',
-    flexDirection: 'column',
-    gap: '15px',
-    padding: '20px 0',
-    borderTop: '1px solid #eee',
-  },
-  mobileNavLink: {
-    color: '#333',
-    textDecoration: 'none',
-    fontWeight: 500,
-    padding: '5px 0',
-  },
-  mobileContact: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-    paddingTop: '15px',
-    borderTop: '1px solid #eee',
-    marginTop: '10px',
-  },
-  mobileRating: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-  },
-  mobileBookBtn: {
-    background: '#1e3c72',
-    color: 'white',
-    border: 'none',
-    padding: '10px 20px',
-    borderRadius: '4px',
-    fontWeight: 600,
-    cursor: 'pointer',
   },
   
   // Hero section - matching the image
@@ -1063,13 +901,13 @@ const styles = {
   h1: {
     fontSize: '48px',
     fontWeight: 700,
-    color: '#1e3c72',
+    color: '#10714C',
     marginBottom: '20px',
     lineHeight: 1.2,
   },
   excellenceBadge: {
     display: 'inline-block',
-    background: '#1e3c72',
+    background: '#10714C',
     color: 'white',
     padding: '8px 16px',
     borderRadius: '4px',
@@ -1089,7 +927,7 @@ const styles = {
     gap: '15px',
   },
   callNowBtn: {
-    background: '#ff6b35',
+    background: '#10714C',
     color: 'white',
     border: 'none',
     padding: '15px 25px',
@@ -1104,8 +942,8 @@ const styles = {
   },
   bookOnlineBtn: {
     background: 'transparent',
-    color: '#1e3c72',
-    border: '2px solid #1e3c72',
+    color: '#10714C',
+    border: '2px solid #10714C',
     padding: '15px 25px',
     borderRadius: '4px',
     fontWeight: 600,
@@ -1144,11 +982,11 @@ const styles = {
   trustIcon: {
     fontSize: '36px',
     marginBottom: '10px',
-    color: '#ff6b35',
+    color: '#10714C',
   },
   trustText: {
     fontWeight: 600,
-    color: '#1e3c72',
+    color: '#10714C',
     fontSize: '15px',
   },
   
@@ -1165,13 +1003,13 @@ const styles = {
   h2: {
     fontSize: '38px',
     marginBottom: '25px',
-    color: '#1e3c72',
+    color: '#10714C',
     fontWeight: 700,
   },
   h3: {
     fontSize: '26px',
     marginBottom: '18px',
-    color: '#2a5298',
+    color: '#10714C',
     fontWeight: 600,
   },
   sectionIntro: {
@@ -1198,10 +1036,10 @@ const styles = {
   serviceIcon: {
     fontSize: '48px',
     marginBottom: '20px',
-    color: '#ff6b35',
+    color: '#10714C',
   },
   servicePrice: {
-    color: '#ff6b35',
+    color: '#10714C',
     fontWeight: 700,
     fontSize: '24px',
     margin: '15px 0',
@@ -1224,7 +1062,7 @@ const styles = {
   serviceFeatureCheck: {
     position: 'absolute',
     left: 0,
-    color: '#4caf50',
+    color: '#10714C',
     fontWeight: 'bold',
     fontSize: '18px',
   },
@@ -1239,14 +1077,14 @@ const styles = {
   benefitItem: {
     background: 'white',
     padding: '25px',
-    borderLeft: '4px solid #ff6b35',
+    borderLeft: '4px solid #10714C',
     borderRadius: '8px',
     boxShadow: '0 3px 10px rgba(0,0,0,0.06)',
   },
   benefitItemH3: {
     fontSize: '20px',
     marginBottom: '12px',
-    color: '#1e3c72',
+    color: '#10714C',
   },
   benefitItemP: {
     color: '#555',
@@ -1270,7 +1108,7 @@ const styles = {
   stepNumber: {
     width: '60px',
     height: '60px',
-    background: 'linear-gradient(135deg, #ff6b35, #ff8a5b)',
+    background: '#10714C',
     color: 'white',
     borderRadius: '50%',
     display: 'flex',
@@ -1283,6 +1121,7 @@ const styles = {
   stepH3: {
     fontSize: '20px',
     marginBottom: '15px',
+    color: '#10714C',
   },
   stepP: {
     color: '#555',
@@ -1303,7 +1142,7 @@ const styles = {
     borderCollapse: 'collapse',
   },
   comparisonTh: {
-    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
+    background: '#10714C',
     color: 'white',
     padding: '20px',
     textAlign: 'left',
@@ -1314,7 +1153,7 @@ const styles = {
     borderBottom: '1px solid #e9ecef',
   },
   check: {
-    color: '#4caf50',
+    color: '#10714C',
     fontWeight: 'bold',
     fontSize: '20px',
   },
@@ -1339,6 +1178,7 @@ const styles = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
     transition: 'all 0.3s ease',
     fontWeight: 500,
+    color: '#10714C',
   },
   areasNote: {
     marginTop: '30px',
@@ -1364,7 +1204,7 @@ const styles = {
   testimonialBefore: {
     content: '"',
     fontSize: '60px',
-    color: '#ff6b35',
+    color: '#10714C',
     opacity: 0.2,
     position: 'absolute',
     top: '10px',
@@ -1387,7 +1227,7 @@ const styles = {
   },
   testimonialAuthor: {
     fontWeight: 600,
-    color: '#1e3c72',
+    color: '#10714C',
     fontSize: '15px',
   },
   googleReviewCta: {
@@ -1411,7 +1251,7 @@ const styles = {
   faqQuestion: {
     padding: '25px',
     fontWeight: 600,
-    color: '#1e3c72',
+    color: '#10714C',
     fontSize: '18px',
     margin: 0,
   },
@@ -1426,7 +1266,7 @@ const styles = {
   
   // CTA section
   ctaSection: {
-    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
+    background: '#10714C',
     color: 'white',
     padding: '70px 0',
     textAlign: 'center',
@@ -1451,15 +1291,15 @@ const styles = {
   },
   ctaPrimary: {
     display: 'inline-block',
-    background: '#ff6b35',
-    color: 'white',
+    background: 'white',
+    color: '#10714C',
     padding: '18px 40px',
     textDecoration: 'none',
     borderRadius: '8px',
     fontSize: '18px',
     fontWeight: 600,
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(255, 107, 53, 0.3)',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
   },
   ctaSecondary: {
     display: 'inline-block',
@@ -1476,7 +1316,7 @@ const styles = {
   
   // Footer
   footer: {
-    background: '#1a2332',
+    background: '#10714C',
     color: 'white',
     padding: '50px 0 20px',
   },
@@ -1501,25 +1341,25 @@ const styles = {
     marginBottom: '12px',
   },
   footerSectionA: {
-    color: '#b8c1d1',
+    color: 'rgba(255, 255, 255, 0.8)',
     textDecoration: 'none',
     transition: 'color 0.3s',
   },
   footerSectionP: {
-    color: '#b8c1d1',
+    color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: 1.7,
   },
   footerBottom: {
-    borderTop: '1px solid #2d3748',
+    borderTop: '1px solid rgba(255, 255, 255, 0.2)',
     paddingTop: '30px',
     textAlign: 'center',
-    color: '#b8c1d1',
+    color: 'rgba(255, 255, 255, 0.8)',
     fontSize: '14px',
   },
   
   // Inline links
   inlineLink: {
-    color: '#ff6b35',
+    color: '#10714C',
     fontWeight: 600,
     textDecoration: 'none',
     transition: 'color 0.3s',
@@ -1543,18 +1383,6 @@ const styles = {
   },
   
   '@media (max-width: 768px)': {
-    navMenu: {
-      display: 'none',
-    },
-    headerRight: {
-      display: 'none',
-    },
-    mobileMenuBtn: {
-      display: 'block',
-    },
-    mobileNav: {
-      display: 'flex',
-    },
     heroContent: {
       flexDirection: 'column',
       gap: '30px',
