@@ -12,7 +12,7 @@ import ListingEdit from "./pages/ListingEdit";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import MobileCarValeting from "./pages/MobileCarValetingStockport.tsx
+import MobileCarValetingStockport from "./pages/MobileCarValetingStockport.tsx";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/services" element={<ServicePage />} />
           <Route path="/location" element={<Location />} />
           <Route path="/listings/add" element={<ListingEdit />} />
-           <Route path="/MobileCarValeting" element={<MobileCarValeting />} />
+          <Route path="/MobileCarValeting" element={<MobileCarValetingStockport />} />
           <Route path="/listings/edit/:id" element={<ListingEdit />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
