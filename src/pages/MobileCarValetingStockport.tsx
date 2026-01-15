@@ -1,640 +1,117 @@
-import React from 'react';
-
-// CSS Styles as JavaScript objects
-const styles = {
-  // Base styles
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box',
-  },
-  body: {
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
-    lineHeight: 1.7,
-    color: '#2c3e50',
-    background: '#f8f9fa',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 20px',
-  },
-  
-  // Header styles
-  siteHeader: {
-    background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
-    color: 'white',
-    padding: '20px 0',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-    position: 'sticky',
-    top: 0,
-    zIndex: 100,
-  },
-  headerContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    gap: '20px',
-  },
-  logo: {
-    fontSize: '28px',
-    fontWeight: 700,
-    letterSpacing: '-0.5px',
-  },
-  headerContact: {
-    display: 'flex',
-    gap: '25px',
-    flexWrap: 'wrap',
-  },
-  contactItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '16px',
-  },
-  phoneLink: {
-    color: 'white',
-    textDecoration: 'none',
-    fontWeight: 600,
-    transition: 'opacity 0.3s',
-  },
-  
-  // Hero section
-  hero: {
-    background: 'linear-gradient(rgba(30, 60, 114, 0.92), rgba(42, 82, 152, 0.92)), url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 600\'><rect fill=\'%23334155\' width=\'1200\' height=\'600\'/></svg>")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    color: 'white',
-    padding: '80px 0',
-    textAlign: 'center',
-  },
-  h1: {
-    fontSize: '48px',
-    marginBottom: '20px',
-    lineHeight: 1.2,
-    fontWeight: 800,
-  },
-  heroSubtitle: {
-    fontSize: '22px',
-    marginBottom: '15px',
-    fontWeight: 300,
-  },
-  heroDescription: {
-    fontSize: '18px',
-    marginBottom: '35px',
-    maxWidth: '800px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    opacity: 0.95,
-  },
-  heroCta: {
-    display: 'flex',
-    gap: '15px',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-  ctaPrimary: {
-    display: 'inline-block',
-    background: '#ff6b35',
-    color: 'white',
-    padding: '18px 40px',
-    textDecoration: 'none',
-    borderRadius: '8px',
-    fontSize: '18px',
-    fontWeight: 600,
-    transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(255, 107, 53, 0.3)',
-  },
-  ctaSecondary: {
-    display: 'inline-block',
-    background: 'transparent',
-    color: 'white',
-    padding: '18px 40px',
-    textDecoration: 'none',
-    borderRadius: '8px',
-    fontSize: '18px',
-    fontWeight: 600,
-    border: '2px solid white',
-    transition: 'all 0.3s ease',
-  },
-  
-  // Trust bar
-  trustBar: {
-    background: 'white',
-    padding: '30px 0',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-  },
-  trustItems: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    gap: '30px',
-    textAlign: 'center',
-  },
-  trustItem: {
-    flex: 1,
-    minWidth: '200px',
-  },
-  trustIcon: {
-    fontSize: '36px',
-    marginBottom: '10px',
-    color: '#ff6b35',
-  },
-  trustText: {
-    fontWeight: 600,
-    color: '#1e3c72',
-    fontSize: '15px',
-  },
-  
-  // Section styles
-  section: {
-    padding: '60px 0',
-  },
-  bgWhite: {
-    background: 'white',
-  },
-  bgLight: {
-    background: '#f8f9fa',
-  },
-  h2: {
-    fontSize: '38px',
-    marginBottom: '25px',
-    color: '#1e3c72',
-    fontWeight: 700,
-  },
-  h3: {
-    fontSize: '26px',
-    marginBottom: '18px',
-    color: '#2a5298',
-    fontWeight: 600,
-  },
-  sectionIntro: {
-    fontSize: '18px',
-    marginBottom: '20px',
-    maxWidth: '900px',
-    color: '#555',
-  },
-  
-  // Services grid
-  servicesGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '30px',
-    marginTop: '40px',
-  },
-  serviceCard: {
-    background: 'white',
-    padding: '35px',
-    borderRadius: '12px',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-    transition: 'all 0.3s ease',
-  },
-  serviceIcon: {
-    fontSize: '48px',
-    marginBottom: '20px',
-    color: '#ff6b35',
-  },
-  servicePrice: {
-    color: '#ff6b35',
-    fontWeight: 700,
-    fontSize: '24px',
-    margin: '15px 0',
-  },
-  serviceDescription: {
-    color: '#555',
-    marginBottom: '20px',
-    lineHeight: 1.6,
-  },
-  serviceFeatures: {
-    listStyle: 'none',
-    marginTop: '20px',
-  },
-  serviceFeatureItem: {
-    padding: '8px 0',
-    paddingLeft: '28px',
-    position: 'relative',
-    color: '#555',
-  },
-  serviceFeatureCheck: {
-    position: 'absolute',
-    left: 0,
-    color: '#4caf50',
-    fontWeight: 'bold',
-    fontSize: '18px',
-  },
-  
-  // Benefits grid
-  benefitsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '25px',
-    marginTop: '40px',
-  },
-  benefitItem: {
-    background: 'white',
-    padding: '25px',
-    borderLeft: '4px solid #ff6b35',
-    borderRadius: '8px',
-    boxShadow: '0 3px 10px rgba(0,0,0,0.06)',
-  },
-  benefitItemH3: {
-    fontSize: '20px',
-    marginBottom: '12px',
-    color: '#1e3c72',
-  },
-  benefitItemP: {
-    color: '#555',
-    lineHeight: 1.7,
-  },
-  
-  // Process steps
-  processSteps: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '30px',
-    marginTop: '40px',
-  },
-  step: {
-    textAlign: 'center',
-    padding: '30px',
-    background: 'white',
-    borderRadius: '12px',
-    boxShadow: '0 3px 12px rgba(0,0,0,0.06)',
-  },
-  stepNumber: {
-    width: '60px',
-    height: '60px',
-    background: 'linear-gradient(135deg, #ff6b35, #ff8a5b)',
-    color: 'white',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '28px',
-    fontWeight: 700,
-    margin: '0 auto 20px',
-  },
-  stepH3: {
-    fontSize: '20px',
-    marginBottom: '15px',
-  },
-  stepP: {
-    color: '#555',
-    lineHeight: 1.6,
-  },
-  
-  // Comparison table
-  tableWrapper: {
-    overflowX: 'auto',
-    margin: '40px 0',
-  },
-  comparisonTable: {
-    width: '100%',
-    background: 'white',
-    borderRadius: '12px',
-    overflow: 'hidden',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-    borderCollapse: 'collapse',
-  },
-  comparisonTh: {
-    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
-    color: 'white',
-    padding: '20px',
-    textAlign: 'left',
-    fontWeight: 600,
-  },
-  comparisonTd: {
-    padding: '18px 20px',
-    borderBottom: '1px solid #e9ecef',
-  },
-  check: {
-    color: '#4caf50',
-    fontWeight: 'bold',
-    fontSize: '20px',
-  },
-  cross: {
-    color: '#f44336',
-    fontWeight: 'bold',
-    fontSize: '20px',
-  },
-  
-  // Service areas
-  locationsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '15px',
-    marginTop: '30px',
-  },
-  locationItem: {
-    background: 'white',
-    padding: '15px',
-    borderRadius: '8px',
-    textAlign: 'center',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-    transition: 'all 0.3s ease',
-    fontWeight: 500,
-  },
-  areasNote: {
-    marginTop: '30px',
-    textAlign: 'center',
-    fontSize: '16px',
-    color: '#555',
-  },
-  
-  // Testimonials
-  testimonialGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '30px',
-    marginTop: '40px',
-  },
-  testimonial: {
-    background: 'white',
-    padding: '30px',
-    borderRadius: '12px',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-    position: 'relative',
-  },
-  testimonialBefore: {
-    content: '"',
-    fontSize: '60px',
-    color: '#ff6b35',
-    opacity: 0.2,
-    position: 'absolute',
-    top: '10px',
-    left: '20px',
-    fontFamily: 'Georgia, serif',
-    lineHeight: 1,
-  },
-  stars: {
-    color: '#ffc107',
-    fontSize: '18px',
-    marginBottom: '15px',
-  },
-  testimonialText: {
-    fontStyle: 'italic',
-    marginBottom: '20px',
-    color: '#555',
-    position: 'relative',
-    zIndex: 1,
-    lineHeight: 1.7,
-  },
-  testimonialAuthor: {
-    fontWeight: 600,
-    color: '#1e3c72',
-    fontSize: '15px',
-  },
-  googleReviewCta: {
-    textAlign: 'center',
-    marginTop: '40px',
-    fontSize: '18px',
-  },
-  
-  // FAQ
-  faqContainer: {
-    maxWidth: '900px',
-    margin: '40px auto',
-  },
-  faqItem: {
-    background: 'white',
-    marginBottom: '20px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.06)',
-    overflow: 'hidden',
-  },
-  faqQuestion: {
-    padding: '25px',
-    fontWeight: 600,
-    color: '#1e3c72',
-    fontSize: '18px',
-    margin: 0,
-  },
-  faqAnswer: {
-    padding: '0 25px 25px',
-    color: '#555',
-    lineHeight: 1.8,
-  },
-  faqAnswerP: {
-    margin: 0,
-  },
-  
-  // CTA section
-  ctaSection: {
-    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
-    color: 'white',
-    padding: '70px 0',
-    textAlign: 'center',
-  },
-  ctaSectionH2: {
-    color: 'white',
-    marginBottom: '20px',
-  },
-  ctaSectionP: {
-    fontSize: '20px',
-    marginBottom: '35px',
-    opacity: 0.95,
-    maxWidth: '700px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  ctaButtons: {
-    display: 'flex',
-    gap: '20px',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-  
-  // Footer
-  footer: {
-    background: '#1a2332',
-    color: 'white',
-    padding: '50px 0 20px',
-  },
-  footerGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '40px',
-    marginBottom: '40px',
-  },
-  footerSection: {
-    marginBottom: '20px',
-  },
-  footerSectionH4: {
-    color: 'white',
-    marginBottom: '20px',
-    fontSize: '18px',
-  },
-  footerSectionUl: {
-    listStyle: 'none',
-  },
-  footerSectionLi: {
-    marginBottom: '12px',
-  },
-  footerSectionA: {
-    color: '#b8c1d1',
-    textDecoration: 'none',
-    transition: 'color 0.3s',
-  },
-  footerSectionP: {
-    color: '#b8c1d1',
-    lineHeight: 1.7,
-  },
-  footerBottom: {
-    borderTop: '1px solid #2d3748',
-    paddingTop: '30px',
-    textAlign: 'center',
-    color: '#b8c1d1',
-    fontSize: '14px',
-  },
-  
-  // Inline links
-  inlineLink: {
-    color: '#ff6b35',
-    fontWeight: 600,
-    textDecoration: 'none',
-    transition: 'color 0.3s',
-  },
-  
-  // Responsive
-  '@media (max-width: 768px)': {
-    h1: {
-      fontSize: '36px',
-    },
-    h2: {
-      fontSize: '30px',
-    },
-    h3: {
-      fontSize: '22px',
-    },
-    hero: {
-      padding: '50px 0',
-    },
-    heroSubtitle: {
-      fontSize: '18px',
-    },
-    heroDescription: {
-      fontSize: '16px',
-    },
-    headerContent: {
-      flexDirection: 'column',
-      textAlign: 'center',
-    },
-    heroCta: {
-      flexDirection: 'column',
-    },
-    ctaPrimary: {
-      width: '100%',
-      maxWidth: '300px',
-    },
-    ctaSecondary: {
-      width: '100%',
-      maxWidth: '300px',
-    },
-    servicesGrid: {
-      gridTemplateColumns: '1fr',
-    },
-    benefitsGrid: {
-      gridTemplateColumns: '1fr',
-    },
-    processSteps: {
-      gridTemplateColumns: '1fr',
-    },
-    testimonialGrid: {
-      gridTemplateColumns: '1fr',
-    },
-    comparisonTable: {
-      fontSize: '14px',
-    },
-    comparisonTh: {
-      padding: '12px 10px',
-    },
-    comparisonTd: {
-      padding: '12px 10px',
-    },
-    section: {
-      padding: '40px 0',
-    },
-  },
-  
-  '@media (max-width: 480px)': {
-    h1: {
-      fontSize: '28px',
-    },
-    h2: {
-      fontSize: '24px',
-    },
-    ctaPrimary: {
-      padding: '15px 30px',
-      fontSize: '16px',
-    },
-    ctaSecondary: {
-      padding: '15px 30px',
-      fontSize: '16px',
-    },
-    serviceCard: {
-      padding: '20px',
-    },
-    benefitItem: {
-      padding: '20px',
-    },
-    step: {
-      padding: '20px',
-    },
-    testimonial: {
-      padding: '20px',
-    },
-  },
-};
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MobileCarValetingStockport = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div style={styles.body}>
-      {/* Header */}
+      {/* Header - Matching the image design */}
       <header style={styles.siteHeader}>
         <div style={styles.container}>
           <div style={styles.headerContent}>
-            <div style={styles.logo}>SRV Detailing</div>
-            <div style={styles.headerContact}>
-              <div style={styles.contactItem}>
-                <span className="icon">Phone:</span>
-                <a href="tel:+447375759686" style={styles.phoneLink}>
-                  07375 759686
-                </a>
+            <div style={styles.logo}>Detailing</div>
+            
+            {/* Desktop Navigation */}
+            <nav style={styles.navMenu}>
+              <Link to="/" style={styles.navLink}>HOME</Link>
+              <Link to="/about" style={styles.navLink}>ABOUT</Link>
+              <Link to="/services" style={styles.navLink}>SERVICES</Link>
+              <Link to="/gallery" style={styles.navLink}>GALLERY</Link>
+              <Link to="/contact" style={styles.navLink}>CONTACT</Link>
+            </nav>
+
+            {/* Right side items */}
+            <div style={styles.headerRight}>
+              {/* Rating */}
+              <div style={styles.rating}>
+                <span style={styles.stars}>★★★★★</span>
+                <span style={styles.ratingText}>5.0</span>
               </div>
-              <div style={styles.contactItem}>
-                <span className="icon">Location:</span>
-                <span>Stockport & Greater Manchester</span>
+
+              {/* Contact Info */}
+              <div style={styles.contactInfo}>
+                <span style={styles.contactNumber}>07375 759686</span>
+              </div>
+
+              {/* Book Now Button */}
+              <button style={styles.bookNowBtn}>BOOK NOW</button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button style={styles.mobileMenuBtn} onClick={toggleMenu}>
+              {isMenuOpen ? '✕' : '☰'}
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div style={styles.mobileNav}>
+              <Link to="/" style={styles.mobileNavLink}>HOME</Link>
+              <Link to="/about" style={styles.mobileNavLink}>ABOUT</Link>
+              <Link to="/services" style={styles.mobileNavLink}>SERVICES</Link>
+              <Link to="/gallery" style={styles.mobileNavLink}>GALLERY</Link>
+              <Link to="/contact" style={styles.mobileNavLink}>CONTACT</Link>
+              
+              <div style={styles.mobileContact}>
+                <div style={styles.mobileRating}>
+                  <span style={styles.stars}>★★★★★</span>
+                  <span style={styles.ratingText}>5.0</span>
+                </div>
+                <span style={styles.contactNumber}>07375 759686</span>
+                <button style={styles.mobileBookBtn}>BOOK NOW</button>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Matching the image design */}
       <section style={styles.hero}>
         <div style={styles.container}>
-          <h1 style={styles.h1}>Mobile Car Valeting Stockport – Professional Detailing at Your Doorstep</h1>
-          <p style={styles.heroSubtitle}>
-            Expert Interior & Exterior Valeting Services Across Stockport and Greater Manchester
-          </p>
-          <p style={styles.heroDescription}>
-            Save time with our fully-equipped mobile car valeting service. We bring professional 
-            car detailing, eco-friendly cleaning products, and expert care directly to your home, 
-            workplace, or preferred location throughout Stockport.
-          </p>
-          <div style={styles.heroCta}>
-            <a href="tel:+447375759686" style={styles.ctaPrimary}>
-              Call Now: 07375 759686
-            </a>
-            <a 
-              href="https://share.google/C5GE3wzMfDb2Ninmj" 
-              style={styles.ctaSecondary}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Our Reviews
-            </a>
+          <div style={styles.heroContent}>
+            <div style={styles.heroLeft}>
+              <h1 style={styles.h1}>Professional Mobile Car Detailing & Valeting</h1>
+              
+              {/* Years of Excellence Badge */}
+              <div style={styles.excellenceBadge}>
+                <span style={styles.excellenceText}>22 Years of Excellence</span>
+              </div>
+
+              <p style={styles.heroDescription}>
+                Expert Interior & Exterior Valeting Services Across Stockport and Greater Manchester. 
+                Save time with our fully-equipped mobile car valeting service. We bring professional 
+                car detailing, eco-friendly cleaning products, and expert care directly to your home, 
+                workplace, or preferred location throughout Stockport.
+              </p>
+
+              <div style={styles.heroButtons}>
+                <a href="tel:+447375759686" style={styles.callNowBtn}>
+                  Call Now: 07375 759686
+                </a>
+                <a 
+                  href="https://share.google/C5GE3wzMfDb2Ninmj" 
+                  style={styles.bookOnlineBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Our Reviews
+                </a>
+              </div>
+            </div>
+
+            {/* Right Content - Car Image */}
+            <div style={styles.heroRight}>
+              <img 
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="White Mercedes Car Detailing" 
+                style={styles.carImage}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -663,8 +140,8 @@ const MobileCarValetingStockport = () => {
         </div>
       </div>
 
-      {/* Services Section */}
-      <section style={{...styles.section, ...styles.bgWhite}}>
+      {/* Service Modules - Matching the image design */}
+      <section style={styles.serviceModules}>
         <div style={styles.container}>
           <h2 style={styles.h2}>Our Mobile Car Valeting Services in Stockport</h2>
           <p style={styles.sectionIntro}>
@@ -1444,6 +921,692 @@ const MobileCarValetingStockport = () => {
       </footer>
     </div>
   );
+};
+
+// Updated styles to match the image
+const styles = {
+  // Base styles
+  body: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+    lineHeight: 1.6,
+    color: '#333',
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box',
+  },
+  container: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '0 20px',
+  },
+  
+  // Header styles - matching the image
+  siteHeader: {
+    background: '#fff',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
+  },
+  headerContent: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '15px 0',
+  },
+  logo: {
+    fontSize: '28px',
+    fontWeight: 700,
+    color: '#1e3c72',
+    textDecoration: 'none',
+  },
+  navMenu: {
+    display: 'flex',
+    gap: '30px',
+  },
+  navLink: {
+    color: '#333',
+    textDecoration: 'none',
+    fontWeight: 500,
+    transition: 'color 0.3s',
+  },
+  headerRight: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '20px',
+  },
+  rating: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+  },
+  stars: {
+    color: '#f8ce0b',
+    fontSize: '16px',
+  },
+  ratingText: {
+    fontWeight: 600,
+  },
+  contactInfo: {
+    fontWeight: 500,
+  },
+  contactNumber: {
+    color: '#1e3c72',
+    fontWeight: 600,
+  },
+  bookNowBtn: {
+    background: '#1e3c72',
+    color: 'white',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '4px',
+    fontWeight: 600,
+    cursor: 'pointer',
+    transition: 'background 0.3s',
+  },
+  mobileMenuBtn: {
+    display: 'none',
+    background: 'none',
+    border: 'none',
+    fontSize: '24px',
+    cursor: 'pointer',
+  },
+  mobileNav: {
+    display: 'none',
+    flexDirection: 'column',
+    gap: '15px',
+    padding: '20px 0',
+    borderTop: '1px solid #eee',
+  },
+  mobileNavLink: {
+    color: '#333',
+    textDecoration: 'none',
+    fontWeight: 500,
+    padding: '5px 0',
+  },
+  mobileContact: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+    paddingTop: '15px',
+    borderTop: '1px solid #eee',
+    marginTop: '10px',
+  },
+  mobileRating: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+  },
+  mobileBookBtn: {
+    background: '#1e3c72',
+    color: 'white',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '4px',
+    fontWeight: 600,
+    cursor: 'pointer',
+  },
+  
+  // Hero section - matching the image
+  hero: {
+    background: '#f5f5f5',
+    padding: '60px 0',
+  },
+  heroContent: {
+    display: 'flex',
+    gap: '50px',
+    alignItems: 'center',
+  },
+  heroLeft: {
+    flex: 1,
+  },
+  h1: {
+    fontSize: '48px',
+    fontWeight: 700,
+    color: '#1e3c72',
+    marginBottom: '20px',
+    lineHeight: 1.2,
+  },
+  excellenceBadge: {
+    display: 'inline-block',
+    background: '#1e3c72',
+    color: 'white',
+    padding: '8px 16px',
+    borderRadius: '4px',
+    marginBottom: '20px',
+  },
+  excellenceText: {
+    fontWeight: 600,
+  },
+  heroDescription: {
+    fontSize: '18px',
+    marginBottom: '30px',
+    color: '#555',
+    lineHeight: 1.6,
+  },
+  heroButtons: {
+    display: 'flex',
+    gap: '15px',
+  },
+  callNowBtn: {
+    background: '#ff6b35',
+    color: 'white',
+    border: 'none',
+    padding: '15px 25px',
+    borderRadius: '4px',
+    fontWeight: 600,
+    cursor: 'pointer',
+    fontSize: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    textDecoration: 'none',
+  },
+  bookOnlineBtn: {
+    background: 'transparent',
+    color: '#1e3c72',
+    border: '2px solid #1e3c72',
+    padding: '15px 25px',
+    borderRadius: '4px',
+    fontWeight: 600,
+    cursor: 'pointer',
+    fontSize: '16px',
+    textDecoration: 'none',
+  },
+  heroRight: {
+    flex: 1,
+    position: 'relative',
+  },
+  carImage: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '8px',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+  },
+  
+  // Trust bar
+  trustBar: {
+    background: 'white',
+    padding: '30px 0',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+  },
+  trustItems: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    gap: '30px',
+    textAlign: 'center',
+  },
+  trustItem: {
+    flex: 1,
+    minWidth: '200px',
+  },
+  trustIcon: {
+    fontSize: '36px',
+    marginBottom: '10px',
+    color: '#ff6b35',
+  },
+  trustText: {
+    fontWeight: 600,
+    color: '#1e3c72',
+    fontSize: '15px',
+  },
+  
+  // Section styles
+  section: {
+    padding: '60px 0',
+  },
+  bgWhite: {
+    background: 'white',
+  },
+  bgLight: {
+    background: '#f8f9fa',
+  },
+  h2: {
+    fontSize: '38px',
+    marginBottom: '25px',
+    color: '#1e3c72',
+    fontWeight: 700,
+  },
+  h3: {
+    fontSize: '26px',
+    marginBottom: '18px',
+    color: '#2a5298',
+    fontWeight: 600,
+  },
+  sectionIntro: {
+    fontSize: '18px',
+    marginBottom: '20px',
+    maxWidth: '900px',
+    color: '#555',
+  },
+  
+  // Services grid
+  servicesGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+    gap: '30px',
+    marginTop: '40px',
+  },
+  serviceCard: {
+    background: 'white',
+    padding: '35px',
+    borderRadius: '12px',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+    transition: 'all 0.3s ease',
+  },
+  serviceIcon: {
+    fontSize: '48px',
+    marginBottom: '20px',
+    color: '#ff6b35',
+  },
+  servicePrice: {
+    color: '#ff6b35',
+    fontWeight: 700,
+    fontSize: '24px',
+    margin: '15px 0',
+  },
+  serviceDescription: {
+    color: '#555',
+    marginBottom: '20px',
+    lineHeight: 1.6,
+  },
+  serviceFeatures: {
+    listStyle: 'none',
+    marginTop: '20px',
+  },
+  serviceFeatureItem: {
+    padding: '8px 0',
+    paddingLeft: '28px',
+    position: 'relative',
+    color: '#555',
+  },
+  serviceFeatureCheck: {
+    position: 'absolute',
+    left: 0,
+    color: '#4caf50',
+    fontWeight: 'bold',
+    fontSize: '18px',
+  },
+  
+  // Benefits grid
+  benefitsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '25px',
+    marginTop: '40px',
+  },
+  benefitItem: {
+    background: 'white',
+    padding: '25px',
+    borderLeft: '4px solid #ff6b35',
+    borderRadius: '8px',
+    boxShadow: '0 3px 10px rgba(0,0,0,0.06)',
+  },
+  benefitItemH3: {
+    fontSize: '20px',
+    marginBottom: '12px',
+    color: '#1e3c72',
+  },
+  benefitItemP: {
+    color: '#555',
+    lineHeight: 1.7,
+  },
+  
+  // Process steps
+  processSteps: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '30px',
+    marginTop: '40px',
+  },
+  step: {
+    textAlign: 'center',
+    padding: '30px',
+    background: 'white',
+    borderRadius: '12px',
+    boxShadow: '0 3px 12px rgba(0,0,0,0.06)',
+  },
+  stepNumber: {
+    width: '60px',
+    height: '60px',
+    background: 'linear-gradient(135deg, #ff6b35, #ff8a5b)',
+    color: 'white',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '28px',
+    fontWeight: 700,
+    margin: '0 auto 20px',
+  },
+  stepH3: {
+    fontSize: '20px',
+    marginBottom: '15px',
+  },
+  stepP: {
+    color: '#555',
+    lineHeight: 1.6,
+  },
+  
+  // Comparison table
+  tableWrapper: {
+    overflowX: 'auto',
+    margin: '40px 0',
+  },
+  comparisonTable: {
+    width: '100%',
+    background: 'white',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+    borderCollapse: 'collapse',
+  },
+  comparisonTh: {
+    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
+    color: 'white',
+    padding: '20px',
+    textAlign: 'left',
+    fontWeight: 600,
+  },
+  comparisonTd: {
+    padding: '18px 20px',
+    borderBottom: '1px solid #e9ecef',
+  },
+  check: {
+    color: '#4caf50',
+    fontWeight: 'bold',
+    fontSize: '20px',
+  },
+  cross: {
+    color: '#f44336',
+    fontWeight: 'bold',
+    fontSize: '20px',
+  },
+  
+  // Service areas
+  locationsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+    gap: '15px',
+    marginTop: '30px',
+  },
+  locationItem: {
+    background: 'white',
+    padding: '15px',
+    borderRadius: '8px',
+    textAlign: 'center',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+    transition: 'all 0.3s ease',
+    fontWeight: 500,
+  },
+  areasNote: {
+    marginTop: '30px',
+    textAlign: 'center',
+    fontSize: '16px',
+    color: '#555',
+  },
+  
+  // Testimonials
+  testimonialGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '30px',
+    marginTop: '40px',
+  },
+  testimonial: {
+    background: 'white',
+    padding: '30px',
+    borderRadius: '12px',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+    position: 'relative',
+  },
+  testimonialBefore: {
+    content: '"',
+    fontSize: '60px',
+    color: '#ff6b35',
+    opacity: 0.2,
+    position: 'absolute',
+    top: '10px',
+    left: '20px',
+    fontFamily: 'Georgia, serif',
+    lineHeight: 1,
+  },
+  stars: {
+    color: '#ffc107',
+    fontSize: '18px',
+    marginBottom: '15px',
+  },
+  testimonialText: {
+    fontStyle: 'italic',
+    marginBottom: '20px',
+    color: '#555',
+    position: 'relative',
+    zIndex: 1,
+    lineHeight: 1.7,
+  },
+  testimonialAuthor: {
+    fontWeight: 600,
+    color: '#1e3c72',
+    fontSize: '15px',
+  },
+  googleReviewCta: {
+    textAlign: 'center',
+    marginTop: '40px',
+    fontSize: '18px',
+  },
+  
+  // FAQ
+  faqContainer: {
+    maxWidth: '900px',
+    margin: '40px auto',
+  },
+  faqItem: {
+    background: 'white',
+    marginBottom: '20px',
+    borderRadius: '8px',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.06)',
+    overflow: 'hidden',
+  },
+  faqQuestion: {
+    padding: '25px',
+    fontWeight: 600,
+    color: '#1e3c72',
+    fontSize: '18px',
+    margin: 0,
+  },
+  faqAnswer: {
+    padding: '0 25px 25px',
+    color: '#555',
+    lineHeight: 1.8,
+  },
+  faqAnswerP: {
+    margin: 0,
+  },
+  
+  // CTA section
+  ctaSection: {
+    background: 'linear-gradient(135deg, #1e3c72, #2a5298)',
+    color: 'white',
+    padding: '70px 0',
+    textAlign: 'center',
+  },
+  ctaSectionH2: {
+    color: 'white',
+    marginBottom: '20px',
+  },
+  ctaSectionP: {
+    fontSize: '20px',
+    marginBottom: '35px',
+    opacity: 0.95,
+    maxWidth: '700px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  ctaButtons: {
+    display: 'flex',
+    gap: '20px',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+  },
+  ctaPrimary: {
+    display: 'inline-block',
+    background: '#ff6b35',
+    color: 'white',
+    padding: '18px 40px',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontSize: '18px',
+    fontWeight: 600,
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(255, 107, 53, 0.3)',
+  },
+  ctaSecondary: {
+    display: 'inline-block',
+    background: 'transparent',
+    color: 'white',
+    padding: '18px 40px',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontSize: '18px',
+    fontWeight: 600,
+    border: '2px solid white',
+    transition: 'all 0.3s ease',
+  },
+  
+  // Footer
+  footer: {
+    background: '#1a2332',
+    color: 'white',
+    padding: '50px 0 20px',
+  },
+  footerGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '40px',
+    marginBottom: '40px',
+  },
+  footerSection: {
+    marginBottom: '20px',
+  },
+  footerSectionH4: {
+    color: 'white',
+    marginBottom: '20px',
+    fontSize: '18px',
+  },
+  footerSectionUl: {
+    listStyle: 'none',
+  },
+  footerSectionLi: {
+    marginBottom: '12px',
+  },
+  footerSectionA: {
+    color: '#b8c1d1',
+    textDecoration: 'none',
+    transition: 'color 0.3s',
+  },
+  footerSectionP: {
+    color: '#b8c1d1',
+    lineHeight: 1.7,
+  },
+  footerBottom: {
+    borderTop: '1px solid #2d3748',
+    paddingTop: '30px',
+    textAlign: 'center',
+    color: '#b8c1d1',
+    fontSize: '14px',
+  },
+  
+  // Inline links
+  inlineLink: {
+    color: '#ff6b35',
+    fontWeight: 600,
+    textDecoration: 'none',
+    transition: 'color 0.3s',
+  },
+  
+  // Service modules - matching the image
+  serviceModules: {
+    padding: '60px 0',
+    background: '#fff',
+  },
+  
+  // Responsive styles
+  '@media (max-width: 992px)': {
+    servicesGrid: {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    heroContent: {
+      flexDirection: 'column',
+      gap: '30px',
+    },
+  },
+  
+  '@media (max-width: 768px)': {
+    navMenu: {
+      display: 'none',
+    },
+    headerRight: {
+      display: 'none',
+    },
+    mobileMenuBtn: {
+      display: 'block',
+    },
+    mobileNav: {
+      display: 'flex',
+    },
+    heroContent: {
+      flexDirection: 'column',
+      gap: '30px',
+    },
+    h1: {
+      fontSize: '36px',
+    },
+    servicesGrid: {
+      gridTemplateColumns: '1fr',
+    },
+    heroButtons: {
+      flexDirection: 'column',
+    },
+    h2: {
+      fontSize: '30px',
+    },
+    h3: {
+      fontSize: '22px',
+    },
+    section: {
+      padding: '40px 0',
+    },
+  },
+  
+  '@media (max-width: 480px)': {
+    h1: {
+      fontSize: '28px',
+    },
+    h2: {
+      fontSize: '24px',
+    },
+    callNowBtn: {
+      padding: '15px 30px',
+      fontSize: '16px',
+    },
+    bookOnlineBtn: {
+      padding: '15px 30px',
+      fontSize: '16px',
+    },
+    serviceCard: {
+      padding: '20px',
+    },
+    benefitItem: {
+      padding: '20px',
+    },
+    step: {
+      padding: '20px',
+    },
+    testimonial: {
+      padding: '20px',
+    },
+  },
 };
 
 export default MobileCarValetingStockport;
